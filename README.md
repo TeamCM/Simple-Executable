@@ -3,7 +3,17 @@ A file format to executables meant to be easy to create, parse and execute.
 
 ## File Header:
 
-`Magic Number 56 SE_VERSION 54 CODE_TYPE 50 PROCESSOR_TYPE 4C PROGRAM_TILE_STR 44 PROGRAM_DESCRIPTION_STR 58 PROGRAM_VERSION_STR 43 CODE_STR... 40`
+```js
+const program_details = {
+    seVersion: 0,
+    codeType: 0,
+    processorType: 0,
+    programTitle: "",
+    programDescription: "",
+    programVersion: "",
+    code: ""
+};
+```
 
 - Magic Number: `53 45 58 45` in hexadecimal (or SEXE in ASCII)
 
@@ -36,3 +46,6 @@ The length of the string is 10 characters long. If a string is minor than 30 cha
 `43` is referred as the start of program code, will read until is the end of the file and finds a `40`.
 
 `40` is referred as the end of the code, the end of code is valid when placed before the end of file.
+
+### Note:
+Simple Executable can support any codes (to ascii to binary ones)
